@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTPS TLS Security Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="background-grid"></div>
+
+  <header class="hero">
+    <div class="badge">Cybersecurity Lab • Docker • TLS • Wireshark</div>
+
+    <h1>HTTPS TLS Security Lab</h1>
+    <h2>Analyse TLS & comparaison HTTP vs HTTPS</h2>
+
+    <p>
+      Laboratoire web sécurisé avec Docker et Nginx permettant de comparer
+      le trafic HTTP non chiffré et HTTPS sécurisé via TLS.
+    </p>
+
+    <div class="buttons">
+      <a href="https://github.com/idrissa260/https-tls-security-lab" target="_blank">
+        Voir le repo GitHub
+      </a>
+      <a href="#analyse" class="secondary">Voir l’analyse</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="cards">
+      <div class="card">
+        <h3>HTTP</h3>
+        <p>Observation d’une requête GET visible en clair dans Wireshark.</p>
+      </div>
+
+      <div class="card">
+        <h3>HTTPS / TLS</h3>
+        <p>Analyse du handshake TLS et des données chiffrées.</p>
+      </div>
+
+      <div class="card">
+        <h3>Docker Lab</h3>
+        <p>Infrastructure reproductible avec Nginx HTTP, Nginx HTTPS et client d’analyse.</p>
+      </div>
+    </section>
+
+    <section id="analyse" class="analysis">
+      <h2>Captures Wireshark</h2>
+
+      <div class="image-grid">
+        <div class="image-card reveal">
+          <img src="captures/http_wireshark.png" alt="Analyse HTTP Wireshark" class="zoomable">
+          <h3>Trafic HTTP</h3>
+          <p>La requête GET et les headers HTTP sont visibles en clair.</p>
+        </div>
+
+        <div class="image-card reveal">
+          <img src="captures/tls_wireshark.png" alt="Analyse TLS Wireshark" class="zoomable">
+          <h3>Trafic HTTPS / TLS</h3>
+          <p>Le handshake TLS est visible, mais les données applicatives sont chiffrées.</p>
+        </div>
+
+        <div class="image-card reveal">
+          <img src="captures/full_capture_wireshark.png" alt="Capture complète Wireshark" class="zoomable">
+          <h3>Vue complète</h3>
+          <p>Observation des couches réseau : TCP, HTTP, ARP et début de connexion HTTPS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison">
+      <h2>Comparaison HTTP vs HTTPS</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Élément</th>
+            <th>HTTP</th>
+            <th>HTTPS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Données lisibles</td>
+            <td>Oui</td>
+            <td>Non</td>
+          </tr>
+          <tr>
+            <td>GET visible</td>
+            <td>Oui</td>
+            <td>Non</td>
+          </tr>
+          <tr>
+            <td>Chiffrement</td>
+            <td>Non</td>
+            <td>Oui</td>
+          </tr>
+          <tr>
+            <td>TLS Handshake</td>
+            <td>Non</td>
+            <td>Oui</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="skills">
+      <h2>Compétences mises en œuvre</h2>
+
+      <div class="tags">
+        <span>Docker</span>
+        <span>Nginx</span>
+        <span>OpenSSL</span>
+        <span>TLS</span>
+        <span>HTTPS</span>
+        <span>Wireshark</span>
+        <span>Tcpdump</span>
+        <span>Analyse réseau</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Idrissa SALL — Ingénieur IT • Réseaux • Cybersécurité • Data</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+</body>
+</html>

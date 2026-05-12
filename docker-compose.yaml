@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  nginx-http:
+    image: nginx:alpine
+    container_name: nginx-http
+    ports:
+      - "8081:80"
+    networks:
+      labnet:
+
+  nginx-https:
+    image: nginx:alpine
+    container_name: nginx-https
+    ports:
+      - "8443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+    networks:
+      labnet:
+
+  client:
+    image: kalilinux/kali-rolling
+    container_name: client
+    command: sleep infinity
+    privileged: true
+    volumes:
+      - ./captures:/captures
+    networks:
+      labnet:
+
+networks:
+  labnet:
+    driver: bridge
