@@ -2,4 +2,4 @@
 *.log
 *.log
 *.tmp
-certs/key.pem
+key.pem
